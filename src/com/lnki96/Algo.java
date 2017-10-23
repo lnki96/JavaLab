@@ -9,21 +9,21 @@ public class Algo {
         return i;
     }
 
-	public static int binarySearch(int[] arr, int o) {
-		final int n = arr.length;
-		int m = 0, l = 0, r = n - 1;
-    	do {
-    		if (r >= 0 && l < n)
-    			m = l + r >> 1;
-    		if (o == arr[m])
-    			return m;
-    		else if (o < arr[m])
-    			r = m - 1;
-    		else
-    			l = m + 1;
-    	} while (l <= r);
-    	return -1;
-	}
+    public static int binarySearch(int[] arr, int o) {
+        final int n = arr.length;
+        int m = 0, l = 0, r = n - 1;
+        do {
+            if (r >= 0 && l < n)
+                m = l + r >> 1;
+            if (o == arr[m])
+                return m;
+            else if (o < arr[m])
+                r = m - 1;
+            else
+                l = m + 1;
+        } while (l <= r);
+        return -1;
+    }
 
 //Sort
 
@@ -50,7 +50,7 @@ public class Algo {
         }
     }
 
-	public static void bubbleSort(int[] arr) {
+    public static void bubbleSort(int[] arr) {
         boolean flag;
         int i, j, t;
         for (i = arr.length, flag = true; flag && --i > 0; )
@@ -67,7 +67,7 @@ public class Algo {
         final int n = arr.length;
         boolean flag;
         int[] ind = new int[n];
-    	int i, j, l, r, key, t;
+        int i, j, l, r, key, t;
         for (ind[0] = n, flag = true; flag;) {
             for (i = 0, flag = false; i < n; i = r) {
                 if ((l = i) < (j = (r = ind[i]) - 1)) {
@@ -94,9 +94,9 @@ public class Algo {
         }
     }
 
-	public static void mergeSort(int[] arr) {
+    public static void mergeSort(int[] arr) {
         final int n = arr.length;
-		int[][] cand = new int[2][];
+        int[][] cand = new int[2][];
         int[] next, prev;
         int c, i, j, k, s;
         next = cand[0] = (int[]) arr.clone();
@@ -123,7 +123,7 @@ public class Algo {
         }
         for (i = 0; i < n; i++)
             arr[i] = next[i];
-	}
+    }
 
     public static void heapSort(int[] arr) {
         final int n = arr.length;
