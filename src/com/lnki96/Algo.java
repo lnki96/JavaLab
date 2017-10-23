@@ -38,8 +38,7 @@ public class Algo {
         final int n = arr.length;
         boolean flag;
         int[] ind = new int[n];
-    	int i, j, l, r, key, temp;
-
+    	int i, j, l, r, key, t;
         for (ind[0] = n, flag = true; flag;) {
             for (i = 0, flag = false; i < n; i = r) {
                 if ((l = i) < (j = (r = ind[i]) - 1)) {
@@ -53,9 +52,9 @@ public class Algo {
                             j--;
                         if (i >= j)
                             break;
-                        temp = arr[i];
+                        t = arr[i];
                         arr[i] = arr[j];
-                        arr[j] = temp;
+                        arr[j] = t;
                     }
                     arr[l] = arr[j];
                     arr[j] = key;
@@ -71,7 +70,7 @@ public class Algo {
 		int[][] cand = new int[2][];
         int[] next, prev;
         int c, i, j, k, s;
-        next = cand[0] = arr.clone();
+        next = cand[0] = (int[]) arr.clone();
         cand[1] = new int[n];
         for (c = 0, s = 1; s < n; s <<= 1) {
             prev = cand[c];
@@ -96,4 +95,40 @@ public class Algo {
         for (i = 0; i < n; i++)
             arr[i] = next[i];
 	}
+
+    public static void heapSort(int[] arr) {
+        final int n = arr.length;
+        int c, i, j, k, m, t;
+        for (i = (j = n / 2) - 1; i >= 0; i--)
+            for (k = i, m = k; k < j; k = m) {
+                if (arr[m] < arr[c = (k << 1) + 1])
+                    m = c;
+                if ((c = k + 1 << 1) < i && arr[m] < arr[c])
+                    m = c;
+                if (k != m) {
+                    t = arr[k];
+                    arr[k] = arr[m];
+                    arr[m] = t;
+                } else
+                    break;
+            }
+        for (i = n; i > 0;) {
+            t = arr[0];
+            arr[0] = arr[--i];
+            arr[i] = t;
+            j = i / 2;
+            for (k = 0, m = 0; k < j; k = m) {
+                if (arr[m] < arr[c = (k << 1) + 1])
+                    m = c;
+                if ((c = k + 1 << 1) < i && arr[m] < arr[c])
+                    m = c;
+                if (k != m) {
+                    t = arr[k];
+                    arr[k] = arr[m];
+                    arr[m] = t;
+                } else
+                    break;
+            }
+        }
+    }
 }

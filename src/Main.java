@@ -8,7 +8,7 @@ public class Main {
         int i, j, t, temp;
         for (i = 0; i < arr.length; i++)
             arr[i] = sc.nextInt();
-        Algo.quickSort(arr);
+        Algo.heapSort(arr);
 
         for (i = arr.length, t = 0; i-- > 0;) {
             for (j = 0; j < i; j++)
