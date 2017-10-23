@@ -3,6 +3,12 @@ package com.lnki96;
 public class Algo {
 //Search
 
+    public static int sequentialSearch(int[] arr, int o) {
+        int i;
+        for (i = arr.length; i-- > 0 && arr[i] != o;);
+        return i;
+    }
+
 	public static int binarySearch(int[] arr, int o) {
 		final int n = arr.length;
 		int m = 0, l = 0, r = n - 1;
