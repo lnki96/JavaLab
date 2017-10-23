@@ -21,6 +21,29 @@ public class Algo {
 
 //Sort
 
+    public static void selectSort(int[] arr) {
+        int i, j, m, t;
+        for (i = arr.length; i > 0;) {
+            for (j = 0, m = 0; j < i; j++)
+                if (arr[m] < arr[j])
+                    m = j;
+            t = arr[--i];
+            arr[i] = arr[m];
+            arr[m] = t;
+        }
+    }
+
+    public static void insertSort(int[] arr) {
+        final int n = arr.length;
+        int i, j, k, t;
+        for (i = 0; i < n; i++) {
+            for (j = 0; j < i && arr[j] <= arr[i]; j++);
+            t = arr[i];
+            for (k = i; k > j; arr[k--] = arr[k]);
+            arr[j] = t;
+        }
+    }
+
 	public static void bubbleSort(int[] arr) {
         boolean flag;
         int i, j, t;
